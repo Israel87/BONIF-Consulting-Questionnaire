@@ -77,6 +77,53 @@
         return false;
       });
 
+    
+      resetValues();
+      // form validation for input fields
+      //jQuery("#Submit").prop('disabled', true);
+
+      // if($('#emailaddress').keyup() == '' &&  $('#firstname').keyup() == '' && $('#lastname').keyup() == '' && $('#organizationname').keyup() == ''  && $('#contactnumber').keyup() == '' && $('#webaddress').keyup() == ''){
+      //   $('#submit').attr('disabled', 'disabled');
+
+      // }
+      // else {
+      //   $('#submit').removeAttr('disabled');
+
+      // }
+
+
   });      
 
+
+ 
 }(jQuery));
+
+$('#emailaddress').on('blur', checktext);$('#firstname').on('blur', checktext);$('#lastname').on('blur', checktext);$('#organizationname').on('blur', checktext);
+$('#webaddress').on('blur', checktext);$('#contactnumber').on('blur', checktext);
+
+function checktext()
+{
+  // check the get values
+  if($('#emailaddress').val() == '' ||  $('#firstname').val() == '' || $('#lastname').val() == '' || $('#organizationname').val() == ''  || $('#contactnumber').val() == '' || $('#webaddress').val() == ''){
+    $('#submit').attr('disabled', 'disabled');
+  }
+  else
+  {
+    $('#submit').removeAttr('disabled');
+
+  }
+}
+
+function resetValues(){
+ // window.location.href = "successpage.html";
+ // set values to empty.
+  $('#submit').attr('disabled', 'disabled');
+  $('#emailaddress').val('');  $('#firstname').val('') ;
+  $('#lastname').val('') ; $('#organizationname').val('')  ;
+  $('#contactnumber').val('');$('#webaddress').val('');
+
+}
+
+function redirectToSuccessPage(){
+  //location.href ="successpage.html"
+}
